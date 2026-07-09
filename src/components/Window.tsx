@@ -10,7 +10,10 @@ interface WindowProps {
 
 const Window: React.FC<WindowProps> = ({ windowData }) => {
   const { closeWindow, minimizeWindow, focusWindow } = useWindows();
-  const [isMaximized, setIsMaximized] = useState(false);
+  
+  // Default to maximized on mobile
+  const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
+  const [isMaximized, setIsMaximized] = useState(isMobile);
 
 
   if (windowData.isMinimized) return null;
@@ -22,8 +25,8 @@ const Window: React.FC<WindowProps> = ({ windowData }) => {
       initial={{ scale: 0.9, opacity: 0 }}
       animate={
         isMaximized 
-          ? { width: '100vw', height: 'calc(100vh - 40px)', top: 0, left: 0, x: 0, y: 0, scale: 1, opacity: 1 }
-          : { width: '800px', height: '600px', scale: 1, opacity: 1 }
+          ? { width: '100%', height: 'calc(100dvh - 40px)', top: 0, left: 0, x: 0, y: 0, scale: 1, opacity: 1 }
+          : { width: isMobile ? '100%' : '800px', height: isMobile ? 'calc(100dvh - 40px)' : '600px', scale: 1, opacity: 1 }
       }
       exit={{ scale: 0.9, opacity: 0 }}
       transition={{ duration: 0.2, ease: "easeOut" }}
@@ -31,7 +34,7 @@ const Window: React.FC<WindowProps> = ({ windowData }) => {
       onPointerDown={() => focusWindow(windowData.id)}
       className={cn(
         "absolute rounded-t-lg flex flex-col bg-[#ece9d8] window-shadow border border-[#003da6]",
-        !isMaximized && "top-[10%] left-[15%] max-w-[95vw] max-h-[90vh]"
+        !isMaximized && !isMobile && "top-[10%] left-[15%] max-w-[95vw] max-h-[90dvh]"
       )}
     >
       {/* Title Bar */}

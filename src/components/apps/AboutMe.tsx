@@ -105,7 +105,7 @@ const AboutMe: React.FC = () => {
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ type: "spring", stiffness: 100, delay: 0.1 }}
-              className="text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4"
+              className="text-[12vw] sm:text-6xl md:text-7xl font-black uppercase tracking-tighter leading-none mb-4"
               style={{ textShadow: '4px 4px 0px #111' }}
             >
               <span className="text-white">Laura</span> <br /> Lizarazo
