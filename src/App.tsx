@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { WindowProvider } from './contexts/WindowContext';
 import Desktop from './components/Desktop';
 import MobileWarning from './components/MobileWarning';

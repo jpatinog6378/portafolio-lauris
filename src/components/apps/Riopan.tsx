@@ -78,6 +78,9 @@ const Riopan: React.FC = () => {
               Campaña
             </h1>
           </div>
+          <p className="mt-6 text-xl md:text-2xl font-bold max-w-2xl mx-auto bg-white border-4 border-[#111] p-4 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)]">
+            Estrategias de comunicación precisas y creativas para destacar el alivio rápido y seguro. 💛
+          </p>
         </motion.div>
 
         {/* === 3-COLUMN LAYOUT === */}
@@ -95,6 +98,19 @@ const Riopan: React.FC = () => {
             {/* The figure in the background SVG will show perfectly here */}
           </div>
 
+        </div>
+
+        {/* Footer info */}
+        <div className="mt-12 text-center pb-8 w-full md:w-1/3">
+          <motion.a 
+            whileHover={{ scale: 1.05 }}
+            href="https://www.instagram.com/riopan_col/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#111] text-white px-6 py-3 font-bold uppercase tracking-wider border-2 border-transparent hover:border-white transition-colors mx-auto"
+          >
+            Riopan Colombia <ExternalLink size={18} />
+          </motion.a>
         </div>
       </div>
     </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, Heart, Star, Zap, Coffee, ArrowRight } from 'lucide-react';
+import { Heart, Star, Zap, Coffee, ArrowRight } from 'lucide-react';
 import lauraImg from '../../assets/imagen-laura.jpg';
 import { useWindows } from '../../contexts/WindowContext';
 import Contact from './Contact';

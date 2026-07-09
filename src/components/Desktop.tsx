@@ -3,12 +3,13 @@ import { useWindows } from '../contexts/WindowContext';
 import DesktopIcon from './DesktopIcon';
 import Window from './Window';
 import Taskbar from './Taskbar';
-import { XpFolderIcon, XpUserIcon, XpMailIcon } from './XpIcons';
+import { XpFolderIcon, XpUserIcon, XpMailIcon, XpBehanceIcon } from './XpIcons';
 import AboutMe from './apps/AboutMe';
 import BurgerKing from './apps/BurgerKing';
 import Contact from './apps/Contact';
 import Riopan from './apps/Riopan';
 import Cafam from './apps/Cafam';
+import Nestle from './apps/Nestle';
 
 const Desktop: React.FC = () => {
   const { windows } = useWindows();
@@ -48,10 +49,23 @@ const Desktop: React.FC = () => {
           content={<Cafam />}
         />
         <DesktopIcon 
+          id="nestle"
+          title="Nestlé"
+          icon={<XpFolderIcon />}
+          content={<Nestle />}
+        />
+        <DesktopIcon 
           id="contact"
           title="Contacto"
           icon={<XpMailIcon />}
           content={<Contact />}
+        />
+        <DesktopIcon 
+          id="premios"
+          title="Mis Premios!"
+          icon={<XpBehanceIcon />}
+          content={<div/>}
+          href="https://www.behance.net/lauralizarazo4"
         />
       </div>
 

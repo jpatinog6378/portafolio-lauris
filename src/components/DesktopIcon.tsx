@@ -8,20 +8,27 @@ interface DesktopIconProps {
   content: React.ReactNode;
   x?: number;
   y?: number;
+  href?: string;
 }
 
-const DesktopIcon: React.FC<DesktopIconProps> = ({ id, title, icon, content }) => {
+const DesktopIcon: React.FC<DesktopIconProps> = ({ id, title, icon, content, href }) => {
   const { openWindow } = useWindows();
+
+  const handleOpen = () => {
+    if (href) {
+      window.open(href, '_blank');
+    } else {
+      openWindow(id, title, content, icon);
+    }
+  };
 
   return (
     <div 
       className="flex flex-col items-center justify-center w-20 h-24 gap-1 p-1 rounded hover:bg-white/10 active:bg-blue-500/50 cursor-pointer group select-none"
-      onDoubleClick={() => openWindow(id, title, content, icon)}
+      onDoubleClick={handleOpen}
       onClick={() => {
-        // En web a veces es mejor un click para abrir, pero en XP es doble click.
-        // Podríamos soportar un solo click en mobile.
         if (window.innerWidth < 768) {
-          openWindow(id, title, content, icon);
+          handleOpen();
         }
       }}
     >

@@ -134,7 +134,7 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.3, type: "spring", stiffness: 100 }}
             whileHover={{ y: -5, x: -5, boxShadow: '12px 12px 0px 0px rgba(17,17,17,1)' }}
             className="group relative bg-[#30A0FF] border-4 border-[#111] p-8 shadow-[8px_8px_0px_0px_rgba(17,17,17,1)] flex items-center justify-between transition-all cursor-pointer"
-            onClick={() => window.open('https://www.linkedin.com/in/laura-lizarazo/', '_blank')}
+            onClick={() => window.open('https://www.linkedin.com/in/laura-lizarazo-604538203?utm_source=share_via&utm_content=profile&utm_medium=member_ios', '_blank')}
           >
             <div className="flex items-center gap-6">
               <div className="bg-white border-4 border-[#111] p-4 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] group-hover:rotate-12 transition-transform">
@@ -157,7 +157,7 @@ const Contact: React.FC = () => {
             transition={{ delay: 0.4, type: "spring", stiffness: 100 }}
             whileHover={{ y: -5, x: -5, boxShadow: '12px 12px 0px 0px rgba(17,17,17,1)' }}
             className="group relative bg-[#111] border-4 border-[#111] p-8 shadow-[8px_8px_0px_0px_rgba(17,17,17,1)] flex items-center justify-between transition-all cursor-pointer"
-            onClick={() => window.open('https://www.behance.net/lauralizarazo', '_blank')}
+            onClick={() => window.open('https://www.behance.net/lauralizarazo4', '_blank')}
           >
             <div className="flex items-center gap-6">
               <div className="bg-[#FFD000] border-4 border-[#111] p-4 shadow-[4px_4px_0px_0px_rgba(17,17,17,1)] group-hover:-rotate-12 transition-transform">

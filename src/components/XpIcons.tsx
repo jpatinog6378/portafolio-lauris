@@ -102,3 +102,16 @@ export const XpMailIcon: React.FC<{ className?: string }> = ({ className = '' })
     </defs>
   </svg>
 );
+
+export const XpBehanceIcon: React.FC<{ className?: string }> = ({ className = '' }) => (
+  <svg width="100%" height="100%" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" className={className} style={{ filter: 'drop-shadow(2px 4px 4px rgba(0,0,0,0.4))' }}>
+    <rect x="8" y="12" width="48" height="40" rx="6" fill="url(#be_grad)" stroke="#0044CC" strokeWidth="2"/>
+    <text x="32" y="36" fill="white" fontSize="22" fontWeight="900" fontFamily="sans-serif" textAnchor="middle" dominantBaseline="middle" letterSpacing="-1">Bē</text>
+    <defs>
+      <linearGradient id="be_grad" x1="8" y1="12" x2="56" y2="52" gradientUnits="userSpaceOnUse">
+        <stop stopColor="#1769FF"/>
+        <stop offset="1" stopColor="#0055FF"/>
+      </linearGradient>
+    </defs>
+  </svg>
+);
