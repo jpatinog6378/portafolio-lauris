@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  
+  --color-xp-blue: #245edb;
+  --color-xp-blue-dark: #003399;
+  --color-xp-taskbar: #245edb;
+  --color-xp-green: #3c8142;
+}
+
+@layer base {
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    user-select: none;
+    font-family: var(--font-sans);
+    background-color: #000;
+  }
+}
+
+@layer utilities {
+  .window-shadow {
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5), inset 1px 1px 0 rgba(255, 255, 255, 0.7);
+  }
+  .taskbar-shadow {
+    box-shadow: 0 -1px 3px rgba(0, 0, 0, 0.4);
+  }
+  .text-shadow {
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+  }
+}
