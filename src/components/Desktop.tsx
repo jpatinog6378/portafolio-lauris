@@ -15,7 +15,7 @@ const Desktop: React.FC = () => {
   const { windows } = useWindows();
 
   return (
-    <div className="relative w-screen h-screen overflow-hidden select-none">
+    <div className="relative w-full h-[100dvh] overflow-hidden select-none">
       {/* Background Image */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"

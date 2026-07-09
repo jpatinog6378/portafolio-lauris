@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useWindows, type WindowData } from '../contexts/WindowContext';
 import { Minus, Square, X } from 'lucide-react';
 import { cn } from './Taskbar';
+import dogSpinning from '../assets/dog-spinning.gif';
 
 interface WindowProps {
   windowData: WindowData;
@@ -14,6 +15,12 @@ const Window: React.FC<WindowProps> = ({ windowData }) => {
   // Default to maximized on mobile
   const isMobile = typeof window !== 'undefined' && window.innerWidth < 768;
   const [isMaximized, setIsMaximized] = useState(isMobile);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const t = setTimeout(() => setIsLoading(false), 2000);
+    return () => clearTimeout(t);
+  }, []);
 
 
   if (windowData.isMinimized) return null;
@@ -75,7 +82,33 @@ const Window: React.FC<WindowProps> = ({ windowData }) => {
       </div>
 
       {/* Modern Content Area */}
-      <div className="flex-1 overflow-auto bg-white m-[2px] border border-[#a2a095]">
+      <div className="flex-1 overflow-auto bg-white m-[2px] border border-[#a2a095] relative">
+        {isLoading && (
+          <div className="absolute inset-0 z-50 bg-[#ece9d8] flex items-center justify-center p-4">
+            <div className="flex flex-col items-center gap-2 max-w-[280px] w-full text-center">
+              <div className="w-24 h-24 mb-2">
+                <img src={dogSpinning} alt="Cargando" className="w-full h-full object-contain" />
+              </div>
+              <p className="font-sans text-sm text-[#000] mb-4 leading-tight font-bold">
+                {['about-me', 'contact'].includes(windowData.id)
+                  ? "Cargando información sobre mí..."
+                  : "Cargando casos que cambiaron la forma en que vimos el mundo..."}
+              </p>
+              <div className="w-48 h-4 bg-white border border-[#a2a095] shadow-[inset_1px_1px_2px_rgba(0,0,0,0.3)] p-[2px] relative overflow-hidden mt-2">
+                <motion.div 
+                  initial={{ x: "-100%" }}
+                  animate={{ x: "400%" }}
+                  transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+                  className="absolute top-[2px] bottom-[2px] w-8 flex gap-[2px]"
+                >
+                  <div className="flex-1 bg-gradient-to-b from-[#8fde8f] via-[#24d924] to-[#128a12] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.5)]"></div>
+                  <div className="flex-1 bg-gradient-to-b from-[#8fde8f] via-[#24d924] to-[#128a12] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.5)]"></div>
+                  <div className="flex-1 bg-gradient-to-b from-[#8fde8f] via-[#24d924] to-[#128a12] shadow-[inset_1px_1px_1px_rgba(255,255,255,0.5)]"></div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
+        )}
         {windowData.content}
       </div>
     </motion.div>
